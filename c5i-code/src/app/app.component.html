@@ -1,0 +1,47 @@
+<div class="container">
+   
+    <app-top-pagination-component></app-top-pagination-component>
+    
+    <div *ngIf="navState==1">
+        <app-que-one></app-que-one>
+    </div>
+
+    <div *ngIf="navState==2">
+        <app-que-two></app-que-two>
+    </div>
+
+    <div *ngIf="navState==3">
+        <app-que-three></app-que-three>
+    </div>
+
+    <div *ngIf="navState==4">
+        <app-que-four></app-que-four>
+    </div>
+    
+    <div *ngIf="navState==6">
+        <app-responses></app-responses>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>
+
+
+<!-- Buttons in the footer for actions -->
+
+
+<footer>
+        <div class="row">
+            <div class="col s6 offset-s6">
+                <button *ngIf="navState>1 && navState<6" class="waves-effect waves-light btn-small" (click)="goToBack()">Back</button>
+                
+                <button *ngIf="navState<4" class="waves-effect waves-light btn-small" (click)="skipCurrent()">Skip</button>
+                
+                <button *ngIf="navState<5" class="waves-effect waves-light btn-small" (click)="saveFunc()">Save</button>
+                
+                <button *ngIf="navState<4" class="waves-effect waves-light btn-small" (click)="goToNext()">Next</button>
+                
+                <button *ngIf="navState==4" class="waves-effect waves-light btn-small" (click)="uploadToFB()">Submit</button>
+            </div>
+        </div>
+    </footer>
